@@ -1,0 +1,20 @@
+AI Exercise Coach — Single-file React component (App.jsx)
+
+Dependencies (install in your client project):
+  npm install @tensorflow/tfjs @tensorflow-models/pose-detection @mediapipe/pose lucide-react
+
+If you use Vite React template, create project first:
+  npm create vite@latest client -- --template react
+  cd client
+  npm install
+  npm install @tensorflow/tfjs @tensorflow-models/pose-detection @mediapipe/pose lucide-react
+  npm run dev
+
+This single file contains:
+ - camera + model initialization (MoveNet SINGLEPOSE_THUNDER for higher accuracy)
+ - real-time detection loop (requestAnimationFrame)
+ - visual overlay (joints, skeleton, confidence)
+ - exercise checks (squat, bicep curls) with rep counters and form scores
+ - UI: start/pause, exercise selector, stats, chat feedback
+
+Note: This is a self-contained example for quick testing. For production split into modules.
