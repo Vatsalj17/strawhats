@@ -12,7 +12,7 @@ const PlayerDashboard = () => {
         navigate(`/${id}/academies`)
     }
     const sub = (playerId) => {
-        navigate(`/${playerId}/reports`)
+        navigate(`/${playerId}/report`)
     }
 
     return (
@@ -46,13 +46,13 @@ const PlayerDashboard = () => {
                     image={assets.d4}  buttonName={'See now'}
                     title={'Your submissions'} 
                     description={'your own fitness document for admissions in Academy'} 
-                    onClick={() => sub(currentUser?._id)} 
+                    onClick={() => navigate(`/${currentUser?._id}/report`)} 
                 />
                 <InfoCard 
-                    image={assets.d3} buttonName={'Post'}
-                    title={'Post'} 
+                    image={assets.d3} buttonName={'Go Girls'}
+                    title={'Girls\' academies'} 
                     description={'Post your fitness check here'} 
-                    onClick={() => navigate('/Playerpost')} 
+                    onClick={() => navigate('/girls')} 
                 />
                 <InfoCard 
                     image={assets.d5} buttonName={'search'}

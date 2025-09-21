@@ -3,7 +3,7 @@ import Report from '../models/report.js';
 import Player from '../models/playerModel.js';
 import Institute from '../models/InstituteModel.js';
 import upload from '../middleware/multer.js';
-
+import mongoose from 'mongoose';
 const router = express.Router();
 
 // POST /api/reports/:playerId/:academyId
@@ -83,21 +83,22 @@ router.get('/:playerId/report', async (req, res) => {
   try {
     const { playerId } = req.params;
 
-    // Check if playerId is a valid ObjectId
-    if (!mongoose.Types.ObjectId.isValid(playerId)) {
+    // Convert string to ObjectId if possible
+    const objectId = mongoose.Types.ObjectId.isValid(playerId)
+      ? mongoose.Types.ObjectId(playerId)
+      : null;
+
+    if (!objectId) {
       return res.status(400).json({ message: 'Invalid player ID' });
     }
 
-    const reports = await Report.find({ playerId });
+    const reports = await Report.find({ playerId: objectId });
 
     if (!reports || reports.length === 0) {
-      return res.status(404).json({ message: 'Sorry you do not have any submissions' });
+      return res.status(404).json({ message: 'No submissions found for this player' });
     }
 
-    return res.status(200).json({
-      message: 'Your submissions',
-      reports,
-    });
+    return res.status(200).json({ message: 'Your submissions', reports:reports || []});
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Server error', error: error.message });

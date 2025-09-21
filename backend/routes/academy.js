@@ -37,4 +37,24 @@ router.get('/matchingAcademy/:userId', async (req, res) => {
     }
 })
 
+router.get('/girls', async (req, res) => {
+  try {
+    // Use query param or default to "Yes"
+    const forGirls = req.query.forGirls || 'Yes';
+
+    // Fetch institutes where forGirls matches the string
+    const institutes = await Institute.find({ forGirls });
+
+    if (!institutes || institutes.length === 0) {
+      return res.status(404).json({ success: false, message: 'No institutes found for girls' });
+    }
+
+    res.status(200).json({ success: true, message: 'Institutes for girls', institutes });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Server error', error: err.message });
+  }
+});
+
+
 export default router
