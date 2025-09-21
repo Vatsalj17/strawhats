@@ -79,29 +79,36 @@ router.get('/:academyId/report' , async(req ,res) => {
 
 })
 
-router.get('/:playerId/report', async (req, res) => {
+// ✅ GET all reports for a player
+router.get('/player/:playerId', async (req, res) => {
   try {
     const { playerId } = req.params;
 
-    // Convert string to ObjectId if possible
-    const objectId = mongoose.Types.ObjectId.isValid(playerId)
-      ? mongoose.Types.ObjectId(playerId)
-      : null;
-
-    if (!objectId) {
-      return res.status(400).json({ message: 'Invalid player ID' });
+    // Validate ObjectId
+    if (!mongoose.Types.ObjectId.isValid(playerId)) {
+      return res.status(400).json({ success: false, message: 'Invalid player ID' });
     }
 
-    const reports = await Report.find({ playerId: objectId });
+    // Fetch all reports for this player
+    const reports = await Report.find({ playerId }).populate("academyId", "name"); 
 
     if (!reports || reports.length === 0) {
-      return res.status(404).json({ message: 'No submissions found for this player' });
+      return res.status(404).json({ success: false, message: 'No reports found for this player' });
     }
 
-    return res.status(200).json({ message: 'Your submissions', reports:reports || []});
+    return res.status(200).json({
+      success: true,
+      message: 'Reports fetched successfully',
+      count: reports.length,
+      reports,
+    });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: 'Server error', error: error.message });
+    return res.status(500).json({
+      success: false,
+      message: 'Server error',
+      error: error.message,
+    });
   }
 });
 

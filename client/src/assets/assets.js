@@ -1,5 +1,5 @@
 import c1 from './c1.jpg'
-import clogo from './clogo.webp'
+import clogo from './clogo.png'
 import s1 from './s1.jpeg'
 import s2 from './s2.jpeg'
 import s3 from './s3.jpeg'
@@ -14,7 +14,7 @@ import doc1 from './doc1.jpg'
 import doc2 from './doc2.jpeg'
 import doc3 from './doc3.jpg'
 import a1 from './a1.jpg'
-
+import s6 from './s6.png'
 const assets = {
 c1,
 clogo,
@@ -24,7 +24,7 @@ s3,
 s4,
 s5,
 d1,d2,d3,d4,d5,
-doc1,doc3,doc2,a1
+doc1,doc3,doc2,a1,s6
 }
 
 export default assets;

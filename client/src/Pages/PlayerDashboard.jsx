@@ -49,7 +49,7 @@ const PlayerDashboard = () => {
                     onClick={() => navigate(`/${currentUser?._id}/report`)} 
                 />
                 <InfoCard 
-                    image={assets.d3} buttonName={'Go Girls'}
+                    image={assets.s6} buttonName={'Go Girls'}
                     title={'Girls\' academies'} 
                     description={'Post your fitness check here'} 
                     onClick={() => navigate('/girls')} 

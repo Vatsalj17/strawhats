@@ -16,13 +16,15 @@ const Navbar = ({ logo, title, onButtonClick, buttonName }) => {
       {/* Left Section: Logo + Title */}
       <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
         {logo && (
-          <img
-            src={logo}
-            alt="logo"
-            className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 
-            rounded-full bg-white/80 backdrop-blur-sm 
-            p-1.5 sm:p-2 shadow-lg border border-pink-200/50"
-          />
+       <img
+  src={logo}
+  alt="logo"
+  className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12
+  aspect-square object-contain
+  rounded-full bg-white/0 backdrop-blur-sm 
+  shadow-lg border border-pink-200/50"
+/>
+
         )}
         <span className="text-lg sm:text-xl md:text-2xl font-bold text-pink-900 tracking-wide">
           {title}
