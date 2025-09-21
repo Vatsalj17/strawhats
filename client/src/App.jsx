@@ -15,6 +15,7 @@ import Ai from './Pages/Ai'
 import Submissions from './Pages/Submissions'
 import YourSub from './Pages/YourSub'
 import Girls from './Pages/Girls'
+import Posts from './Pages/Posts'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
   <Route path='/' element={<Home/>} />
   <Route path='/instituteLogin' element={<InstituteLogin/>} />
   <Route path='/fitness' element={<Ai/>} />
+  <Route path='/post' element={<Posts/>} />
   <Route path='/coachLogin' element={<CoachLogin/>} />
   <Route path='/playerLogin' element={<PlayerLogin/>} />
   <Route path='/otp' element={<OTP/>} />

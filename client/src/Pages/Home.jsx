@@ -2,8 +2,19 @@ import React from 'react'
 import HomeNavbar from '../Components/HomeNavbar'
 import assets from '../assets/assets'
 import InfoCard from '../Components/InfoCard'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
+  const aca =() => {
+    navigate('/instituteLogin')
+  }
+  const player = () => {
+    navigate('/playerLogin')
+  }
+  const post = () => {
+    navigate('/post')
+  }
   return (
     <div
       className="min-h-screen bg-cover bg-center relative"
@@ -48,7 +59,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             
             {/* Students Card */}
-            <div className="group relative">
+            <div onClick={player} className="group relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 rounded-[2rem] blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
               <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
                 {/* Icon */}
@@ -74,7 +85,7 @@ const Home = () => {
             </div>
 
             {/* Alumni Card */}
-            <div className="group relative">
+            <div onClick={aca} className="group relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 rounded-[2rem] blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
               <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
                 {/* Icon */}
@@ -99,7 +110,7 @@ const Home = () => {
             </div>
 
             {/* Community Card */}
-            <div className="group relative md:col-span-2 lg:col-span-1">
+            <div onClick={post} className="group relative md:col-span-2 lg:col-span-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 via-rose-400 to-orange-400 rounded-[2rem] blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
               <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
                 {/* Icon */}

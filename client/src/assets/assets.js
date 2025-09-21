@@ -15,6 +15,7 @@ import doc2 from './doc2.jpeg'
 import doc3 from './doc3.jpg'
 import a1 from './a1.jpg'
 import s6 from './s6.png'
+import tbc from './tbc.webp'
 const assets = {
 c1,
 clogo,
@@ -24,7 +25,7 @@ s3,
 s4,
 s5,
 d1,d2,d3,d4,d5,
-doc1,doc3,doc2,a1,s6
+doc1,doc3,doc2,a1,s6,tbc
 }
 
 export default assets;
